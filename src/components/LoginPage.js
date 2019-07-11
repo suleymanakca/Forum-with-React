@@ -12,7 +12,7 @@ class LoginPage extends Component {
         this.state={
             username:"",
             password:"",
-            go:false
+            go: false
         }
     }
     changeInput = (e) => {
@@ -23,21 +23,20 @@ class LoginPage extends Component {
 
     logIn = async () => {
 
-        const response = await axios.get(`http://localhost:3002/users`);
+        //const response = await axios.get(`http://localhost:3002/users`);
 
         const {id} = this.props;
-        response.data.find(user => user.username === this.state.username ? this.setState({go: true}): null)
+        /*let value = this.context;
+        value.find(user => user.username === this.state.username ? : null)*/
+        this.props.history.push(`/user/${id}`);
         
-        if(this.state.go){
-            this.props.history.push(`user/${id}`);
-            
-        }
+        
+       
        
     }
     render() {
         const {username, password} = this.state;
-        return <UserConsumer>{
-            value => {
+      
                 
                 return(
                     <div>
@@ -67,7 +66,6 @@ class LoginPage extends Component {
             </div>
                 )
             }}
-        </UserConsumer>
-    }
-}
+    
+
 export default LoginPage;
