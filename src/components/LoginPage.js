@@ -23,14 +23,7 @@ class LoginPage extends Component {
 
     logIn = async () => {
 
-        //const response = await axios.get(`http://localhost:3002/users`);
-
-        const {id} = this.props;
-        /*let value = this.context;
-        value.find(user => user.username === this.state.username ? : null)*/
-        this.props.history.push(`/user/${id}`);
-        
-        
+    /**Redirect to the main page for the user logged in */        
        
        
     }
